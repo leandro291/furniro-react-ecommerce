@@ -8,7 +8,7 @@ import { NAV_HELPS, NAV_LINKS } from '../../shared/navigation/navigation'
 export function Footer() {
 
     return (
-        <footer className='container mx-auto py-15 gap-5 border-t mt-10 '>
+        <footer className='container mx-auto py-15 gap-5 border-t bg-white'>
 
             <div className='flex flex-col justify-center gap-30 items-center lg:items-baseline lg:flex-row lg:justify-between lg:gap-2 max-w-310 mx-auto w-full mb-15'>
 
