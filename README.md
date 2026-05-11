@@ -6,7 +6,7 @@
 ## Tech Stack
 
 | Category                  | Technology                               |
-| ---------------------     | ---------------------------------------- |const { products, loading, error } = useGetProducts();
+| ---------------------     | ---------------------------------------- |
 | **Framework**             | React 19 + Vite                          |
 | **Routing**               | React Router Dom 7                       |
 | **State Management**      | Zustand                                  |
@@ -132,29 +132,8 @@ src/
 
 Use Repository pattern from `src/features/pages/shop/hooks/use-products.js`:
 
-```typescript
-import { useEffect, useState } from "react"
-import { GetProducts } from "../services/get-products"
-
-export const UseGetProducts = (limit) => {
-
-    const [ products, setProducts ] = useState([])
-    const [ loading, setLoading ] = useState(true)
-    const [ error, setError ] = useState(null)
-
-    useEffect(() => {
-        GetProducts({ limit })
-        .then(setProducts)
-        .catch((error) => setError(error.message))
-        .finally(() => setLoading(false))
-    }, [limit])
-
-    return {
-        products,
-        loading,
-        error,
-    }
-}
+```
+   const { products, loading, error } = useGetProducts();
 ```
 
 ## Code Quality
