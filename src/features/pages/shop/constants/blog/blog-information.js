@@ -1,0 +1,47 @@
+export const BLOG_INFORMATION = [
+    {
+        id: 1,
+        image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+        user: "Admin",
+        date: "14 Oct 2022",
+        category: "jewelery",
+        title: "Going all-in with millennial design",
+        description: "Explorando cómo las nuevas tendencias minimalistas están redefiniendo el uso de accesorios en el día a día, enfocándose en la elegancia y la simplicidad.",
+    },
+    {
+        id: 2,
+        image: "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg",
+        user: "Leandro Rojas",
+        date: "10 May 2026",
+        category: "men's clothing",
+        title: "Essential pieces for the modern wardrobe",
+        description: "Una guía completa sobre las prendas básicas que todo hombre debe tener para lograr un estilo versátil y profesional sin complicaciones.",
+    },
+    {
+        id: 3,
+        image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg",
+        user: "Admin",
+        date: "22 Apr 2026",
+        category: "electronics",
+        title: "Top tech gadgets to boost productivity",
+        description: "Analizamos los últimos avances en dispositivos electrónicos que están ayudando a los desarrolladores y estudiantes a optimizar su flujo de trabajo.",
+    },
+    {
+        id: 4,
+        image: "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg",
+        user: "Admin",
+        date: "01 Apr 2026",
+        category: "women's clothing",
+        title: "Spring trends: Comfort meets style",
+        description: "Descubre las colecciones de temporada que priorizan materiales ligeros y cortes modernos para un look fresco y sofisticado.",
+    },
+    {
+        id: 5,
+        image: "https://images.pexels.com/photos/1453008/pexels-photo-1453008.jpeg",
+        user: "Leandro Rojas",
+        date: "15 Mar 2026",
+        category: "jewelery",
+        title: "Sustainable materials in modern jewelry",
+        description: "Cómo la industria de la joyería está adoptando procesos más éticos y materiales reciclados sin perder el toque de lujo millennial.",
+    }
+];
