@@ -4,10 +4,10 @@
 > A high-performance e-commerce platform built with React and Vite, designed to simulate a complete shopping experience.
 
 ## Tech Stack
-
-| Category                  | Technology                               |
-| ---------------------     | ---------------------------------------- |
-| **Framework**             | React 19 + Vite                          |
+| Category           | Technology                   |
+| ------------------ | ---------------------------- |
+| **Library**        | React 19                     |
+| **Build Tool**     | Vite                         |
 | **Routing**               | React Router Dom 7                       |
 | **State Management**      | Zustand                                  |
 | **UI & Styling**          | Tailwind CSS 4 + Lucide React            |
@@ -34,27 +34,34 @@ Follow these steps to run the project locally:
 
 2. **Install dependencies**
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 3. **Configure Environment Variables**
 
 Create a .env file in the root directory and add your EmailJS credentials:
 
-   ```bash
-    VITE_EMAILJS_SERVICE_ID=your_service_id
-    VITE_EMAILJS_TEMPLATE_ID=your_template_id
-    VITE_EMAILJS_PUBLIC_KEY=your_public_key
-   ```
+```bash
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
 4. **Start the development server**
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
    Server runs at `http://localhost:5173`
+
+## Test Credentials
+
+To simulate a real-world experience, the platform includes a restricted checkout process. Users must be authenticated to finalize a purchase.
+
+- **Username:** `kevinryan`
+- **Password:** `kev02937@`
 
 ## Scripts
 
@@ -84,14 +91,14 @@ src/
 │   └── ui/               # Atomic components (Logo, base buttons)
 ├── features/             # Domain-driven business logic
 │   └── pages/shop/       # Main domain: E-Commerce
-│       ├── components/   # Internal feature components (Cart, Checkout, Blog)
+│       ├── components/   # Internal feature components (Cart, Checkout, Blog...)
 │       ├── constants/    # Static shop data (Benefits, Categories)
 │       ├── hooks/        # Reactive logic (use-get-products, use-auth)
 │       ├── pages/        # Page assemblers (Home.jsx, Shop.jsx)
 │       ├── services/     # External API connections (Fake Store API)
 │       ├── shared/       # Feature-specific reusable UI (Skeletons, ProductCards)
 │       ├── store/        # Global State management with Zustand
-│       └── utils/        # Pure logic (Rating display, Date formatting)
+│       └── utils/        # Pure logic (Rating display)
 ├── router/               # Central routing configuration (React Router)
 ├── App.jsx               # Main application entry point
 └── main.jsx              # DOM mounting point
@@ -133,7 +140,7 @@ src/
 Use Repository pattern from `src/features/pages/shop/hooks/use-products.js`:
 
 ```
-   const { products, loading, error } = useGetProducts();
+const { products, loading, error } = useGetProducts();
 ```
 
 ## Code Quality
@@ -163,6 +170,7 @@ fix: fix bug
 style: formatting
 refactor: code refactoring
 chore: dependencies
+docs: for documents
 ```
 
 ## Resources
