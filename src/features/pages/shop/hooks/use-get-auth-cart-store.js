@@ -5,7 +5,8 @@ export const useGetAuthCartStore = () => {
     const { cart, addToCart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity } = AuthCartStore()
 
     const totalPrice = (cart.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0)).toFixed(2);
-
+    const totalQuantity = cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
+    
     const pricePerProduct = (productId) => {
         const findProduct = cart.find((item) => item.id == productId)
         return (findProduct.quantity * findProduct.price).toFixed(2)
@@ -19,6 +20,7 @@ export const useGetAuthCartStore = () => {
         totalPrice,
         pricePerProduct,
         increaseQuantity,
-        decreaseQuantity
+        decreaseQuantity,
+        totalQuantity
     }
 }
