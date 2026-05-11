@@ -17,7 +17,7 @@ export function ProductsCard({ product, withNavigation = true }) {
 
     return (
         <article 
-            className={`flex flex-col gap-1 min-h-112.5 w-full bg-white border border-gray-100 rounded-xl shadow-sm transition-all hover:shadow-md ${withNavigation && "cursor-pointer"}`}
+            className={`flex flex-col gap-1 min-h-112.5 w-60 mx-auto lg:w-full bg-white border border-gray-100 rounded-xl shadow-sm transition-all hover:shadow-md ${withNavigation && "cursor-pointer"}`}
             onClick={handleNavigate}
         >
 
