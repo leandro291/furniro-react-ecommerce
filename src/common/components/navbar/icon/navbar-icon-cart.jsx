@@ -6,7 +6,7 @@ import { useGetAuthCartStore } from '../../../../features/pages/shop/hooks/use-g
 
 export function NavbarIconCart() {
 
-    const { cart, removeFromCart, totalPrice } = useGetAuthCartStore();
+    const { cart, removeFromCart, totalPrice, totalQuantity } = useGetAuthCartStore();
 
     const navigate = useNavigate()
     const [ isOpen, setIsOpen ] = useState(false);
@@ -76,6 +76,9 @@ export function NavbarIconCart() {
                         </div>
                     </>
                 )}
+            <div className='absolute bg-red-700 top-5 right-2 rounded-full text px-2 py-0.5'>
+                <p className='text-white font-bold'>{totalQuantity}</p>
+            </div>
         </div>
     )
 }
