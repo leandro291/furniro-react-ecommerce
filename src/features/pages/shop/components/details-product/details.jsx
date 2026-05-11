@@ -35,7 +35,7 @@ export function Details() {
     }
 
     return (
-        <div className='container mx-auto w-fit'>
+        <div className='container w-fit'>
             <DetailsCard product={product} />
             <DetailsRelatedProducts product={product}/>
         </div>
