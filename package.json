@@ -12,7 +12,6 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.2.2",
-    "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.16.0",
     "emailjs": "^5.0.0",
     "lucide-react": "^1.11.0",
