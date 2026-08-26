@@ -6,7 +6,8 @@ const API_SOURCE = import.meta.env.VITE_API_SOURCE ?? "fakestore"
 export const GetProducts = async ({ page = 1, limit } = {}) => {
 
     if (API_SOURCE === "furniro") {
-        const { data } = await apiClient.get('/api/catalog/products/', { params: { page } })
+        // page_size: best-effort, se ignora si el backend no soporta override (GAP conocido)
+        const { data } = await apiClient.get('/api/catalog/products/', { params: { page, page_size: limit } })
 
         return {
             count: data.count,
