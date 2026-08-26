@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { CircleX, ShoppingCart } from 'lucide-react';
 import { NavbarIconCartRender } from './navbar-icon-cart-render';
+import { OutlineButton } from '../../../../features/pages/shop/shared/components/outline-button/outline-button';
 import { useGetAuthCartStore } from '../../../../features/pages/shop/hooks/use-get-auth-cart-store';
 
 export function NavbarIconCart() {
@@ -63,13 +64,13 @@ export function NavbarIconCart() {
 
                                     <div className='flex gap-3'>
 
-                                        <button className='w-full py-3 border border-black rounded-full hover:bg-black hover:text-white transition' onClick={handleToCart}>
+                                        <OutlineButton className="w-full py-3 rounded-full" onClick={handleToCart}>
                                             Cart
-                                        </button>
+                                        </OutlineButton>
 
-                                        <button className='w-full py-3 border border-black rounded-full hover:bg-black hover:text-white transition' onClick={handleToCheckout}>
+                                        <OutlineButton className="w-full py-3 rounded-full" onClick={handleToCheckout}>
                                             Checkout
-                                        </button>
+                                        </OutlineButton>
                                     </div>
                                 </div>
                             </div>

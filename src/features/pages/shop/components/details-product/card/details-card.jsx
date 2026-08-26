@@ -6,6 +6,7 @@ import { DETAILS_CARD } from '../../../constants/details/details-card';
 import { DisplayTags } from '../../../utils/details-product/display-tags';
 import { useGetAuthCartStore } from '../../../hooks/use-get-auth-cart-store';
 import { QuantitySelector } from '../../../shared/components/quantity-selector/quantity-selector';
+import { OutlineButton } from '../../../shared/components/outline-button/outline-button';
 
 
 export function DetailsCard({ product }) {
@@ -43,12 +44,12 @@ export function DetailsCard({ product }) {
                             />
 
                             <div>
-                                <button 
-                                    className="border border-black rounded-xl  px-1 lg:px-10 py-3 text-black hover:bg-black hover:text-white transition-all duration-300 cursor-pointer"
+                                <OutlineButton
+                                    className="rounded-xl px-1 lg:px-10 py-3"
                                     onClick={() => addToCart(product, quantity)}
                                 >
                                     Add To Cart
-                                </button>
+                                </OutlineButton>
                             </div>
                         </div>
 
