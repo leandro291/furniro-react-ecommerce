@@ -4,7 +4,8 @@ import { DisplayRating } from '../../../utils/products/display-rating'
 
 export function ProductsCard({ product, withNavigation = true }) {
 
-    const { id, title, price, image, rating } = product
+    const { id, title, price, image, rating, stock } = product
+    const outOfStock = stock === 0
 
     const navigate = useNavigate()
 
@@ -24,8 +25,13 @@ export function ProductsCard({ product, withNavigation = true }) {
             onKeyDown={withNavigation ? (e) => (e.key === "Enter" || e.key === " ") && handleNavigate() : undefined}
         >
 
-            <div className="h-64 flex items-center justify-center p-6 bg-gray-50 rounded-t-xl">
+            <div className="h-64 flex items-center justify-center p-6 bg-gray-50 rounded-t-xl relative">
                 <img className="max-h-full object-contain" src={image} alt={title} />
+                {outOfStock && (
+                    <span className="absolute top-3 left-3 bg-gray-800 text-white text-xs font-poppins px-2 py-1 rounded">
+                        Sin stock
+                    </span>
+                )}
             </div>
 
             <div className="flex flex-col flex-1 p-5 gap-2">
