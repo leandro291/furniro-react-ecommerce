@@ -1,21 +1,27 @@
 import { apiClient } from './api-client';
+import { normalizeProduct } from './normalize-product';
 
-// ponytail: cache never invalidates (fine, fakestoreapi data is static);
-// add a TTL or manual invalidation if products can change during a session.
-const cache = new Map()
+const API_SOURCE = import.meta.env.VITE_API_SOURCE ?? "fakestore"
 
-export const GetProducts = async ({ limit }) => {
+export const GetProducts = async ({ page = 1, limit } = {}) => {
 
-    if (cache.has(limit)) {
-        return cache.get(limit)
+    if (API_SOURCE === "furniro") {
+        const { data } = await apiClient.get('/api/catalog/products/', { params: { page } })
+
+        return {
+            count: data.count,
+            next: data.next,
+            previous: data.previous,
+            results: data.results.map(normalizeProduct),
+        }
     }
 
-    const promise = apiClient.get('/products', { params: { limit } })
-        .then((response) => response.data)
+    const { data } = await apiClient.get('/products', { params: { limit } })
 
-    cache.set(limit, promise)
-    promise.catch(() => cache.delete(limit))
-
-    return promise
-
+    return {
+        count: data.length,
+        next: null,
+        previous: null,
+        results: data.map(normalizeProduct),
+    }
 }
