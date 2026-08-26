@@ -38,7 +38,7 @@ export function NavbarIconCart() {
                             onClick={handleToggle} 
                         />
 
-                            <div className="absolute left-0 -translate-x-1/2 sm:translate-x-0 sm:-left-15 md:left-1 lg:-left-50 top-full md:top-9 min-w-80 z-55 bg-white p-4 rounded-lg shadow-xl border border-gray-200">                            <div className='grid grid-rows-[auto_1fr_auto] h-125 gap-4 p-4'>
+                            <div className="absolute left-0 -translate-x-1/2 sm:translate-x-0 sm:-left-15 md:left-1 lg:-left-50 top-full md:top-9 min-w-80 z-[55] bg-white p-4 rounded-lg shadow-xl border border-gray-200">                            <div className='grid grid-rows-[auto_1fr_auto] h-125 gap-4 p-4'>
 
                                 <div className='flex items-center justify-between border-b border-gray-200 py-4'>
                                     <h2 className='font-["Poppins"] text-xl font-semibold'>Shopping cart</h2>
@@ -77,8 +77,8 @@ export function NavbarIconCart() {
                         </div>
                     </>
                 )}
-            <div className='absolute bg-red-700 top-5 right-2 rounded-full text px-2 py-0.5'>
-                <p className='text-white font-bold'>{totalQuantity}</p>
+            <div className='absolute bg-red-700 top-5 right-2 rounded-full min-w-5 h-5 flex items-center justify-center ring-2 ring-white'>
+                <p className='text-white font-bold text-xs'>{totalQuantity}</p>
             </div>
         </div>
     )

@@ -30,25 +30,28 @@ export function NavbarIconUser() {
             {
                 isAuthenticated ? (
                     <>
-                        <button 
+                        <button
                             onClick={handleToggle}
-                            className='flex items-center gap-1 cursor-pointer hover:text-gray-600 transition-colors font-medium text-sm'
+                            className='flex items-center gap-1 cursor-pointer hover:text-gray-600 transition-colors font-medium text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand rounded'
                         >
                             Hola, {user}
                         </button>
                         {
                             isOpen && (
                                 <div className='absolute left-0 top-10 z-20 bg-white border border-gray-100 w-48 rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200' onClick={handleToggle}>
-                                    <button className='w-full flex justify-between items-center px-4 py-3 text-gray-700 hover:text-red-600 transition-all' >
-                                        <p className="cursor-pointer" onClick={logout}>Logout</p>
-                                        <LogOut className='fill-red-500 text-red-500' onClick={handleLogout} />
+                                    <button
+                                        onClick={handleLogout}
+                                        className='w-full flex justify-between items-center px-4 py-3 text-gray-700 hover:text-red-600 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-500'
+                                    >
+                                        <span>Logout</span>
+                                        <LogOut className='fill-red-500 text-red-500' />
                                     </button>
                                 </div>
                             )
                         }
                     </>
                 ) : (
-                    <div onClick={handleLogin} className='cursor-pointer'>Inicia sesión</div>
+                    <button onClick={handleLogin} className='cursor-pointer hover:text-gray-600 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand rounded'>Inicia sesión</button>
                 )
             }
         </div>

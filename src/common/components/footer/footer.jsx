@@ -8,7 +8,7 @@ import { NAV_HELPS, NAV_LINKS } from '../../shared/navigation/navigation'
 export function Footer() {
 
     return (
-        <footer className='container mx-auto py-15 gap-5 border-t bg-white'>
+        <footer className='container mx-auto py-15 gap-5 border-t border-gray-200 bg-white'>
 
             <div className='flex flex-col justify-center gap-30 items-center lg:items-baseline lg:flex-row lg:justify-between lg:gap-2 max-w-310 mx-auto w-full mb-15'>
 
@@ -29,7 +29,7 @@ export function Footer() {
             </div>
 
             
-            <p className='font-["Poppins"] mt-10 border-t pt-5 border-gray-500'>2026 furino. All rights reverved</p>
+            <p className='font-["Poppins"] mt-10 border-t border-gray-200 pt-5 max-w-310 mx-auto w-full'>2026 furino. All rights reverved</p>
 
         </footer>
     )

@@ -8,7 +8,7 @@ import { NavbarIconUser } from './icon/navbar-icon-user'
 export function Navbar() {
     return (
         <header className='mx-auto container '>
-            <div className="container min-h-25 bg-white flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between items-center lg:px-24 py-6 fixed z-10 border-b border-b-gray-900/20 ">
+            <div className="container min-h-25 bg-white flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between items-center lg:px-24 py-6 sticky top-0 z-10 border-b border-b-gray-900/20 shadow-sm">
 
                 <Logo  />
 
