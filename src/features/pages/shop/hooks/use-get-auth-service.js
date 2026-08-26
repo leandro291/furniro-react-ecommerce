@@ -10,8 +10,6 @@ export const useGetAuthService = () => {
 
         setUser(username)
         setToken(token)
-
-        console.log(username)
     }
 
     return{
