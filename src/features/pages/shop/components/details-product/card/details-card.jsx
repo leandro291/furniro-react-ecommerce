@@ -5,6 +5,7 @@ import { DetailsBanner } from '../banner/details-banner';
 import { DETAILS_CARD } from '../../../constants/details/details-card';
 import { DisplayTags } from '../../../utils/details-product/display-tags';
 import { useGetAuthCartStore } from '../../../hooks/use-get-auth-cart-store';
+import { QuantitySelector } from '../../../shared/components/quantity-selector/quantity-selector';
 
 
 export function DetailsCard({ product }) {
@@ -35,21 +36,11 @@ export function DetailsCard({ product }) {
 
                         <div className="flex items-center gap-2 lg:gap-5 px-8 sm:px-2">
 
-                            <div className='flex items-center justify-between border border-gray-400 rounded-xl px-4 py-3 w-30'>
-                                <button 
-                                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                    className="text-lg hover:text-gray-500 transition-colors cursor-pointer"
-                                >
-                                -
-                                </button>
-                                <span className="text-md font-medium">{quantity}</span>
-                                <button 
-                                    onClick={() => setQuantity(quantity + 1)}
-                                    className="text-lg hover:text-gray-500 transition-colors cursor-pointer"
-                                >
-                                +
-                                </button>
-                            </div>
+                            <QuantitySelector
+                                quantity={quantity}
+                                onIncrease={() => setQuantity(q => q + 1)}
+                                onDecrease={() => setQuantity(q => Math.max(1, q - 1))}
+                            />
 
                             <div>
                                 <button 

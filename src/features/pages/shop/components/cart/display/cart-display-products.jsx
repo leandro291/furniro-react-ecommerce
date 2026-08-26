@@ -1,5 +1,6 @@
 import React from 'react'
-import { Trash, Plus, Minus } from 'lucide-react'
+import { Trash } from 'lucide-react'
+import { QuantitySelector } from '../../../shared/components/quantity-selector/quantity-selector';
 
 export function CartDisplayProducts({ id, image, price, quantity, title, removeFromCart, pricePerProduct, increaseQuantity, decreaseQuantity }) {
 
@@ -23,23 +24,12 @@ export function CartDisplayProducts({ id, image, price, quantity, title, removeF
             </span>
 
             <div className='flex justify-center'>
-                <div className='flex items-center border border-gray-300 rounded-lg overflow-hidden w-fit'>
-                    <button 
-                        className='px-2 py-1 hover:bg-gray-100 transition-colors' 
-                        onClick={() => decreaseQuantity(id)}
-                    >
-                        <Minus size={14} />
-                    </button>
-                    <span className='w-8 text-center font-semibold text-sm border-x border-gray-200 py-1'>
-                        {quantity}
-                    </span>
-                    <button 
-                        className='px-2 py-1 hover:bg-gray-100 transition-colors' 
-                        onClick={() => increaseQuantity(id)}
-                    >
-                        <Plus size={14} />
-                    </button>
-                </div>
+                <QuantitySelector
+                    quantity={quantity}
+                    onIncrease={() => increaseQuantity(id)}
+                    onDecrease={() => decreaseQuantity(id)}
+                    variant="compact"
+                />
             </div>
             
             <span className='font-["Poppins"] font-semibold md:font-normal text-center text-black'>
