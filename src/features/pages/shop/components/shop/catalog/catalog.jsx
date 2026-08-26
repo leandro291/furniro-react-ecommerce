@@ -5,6 +5,7 @@ import { usePaginationShopStore } from '../../../store/pagination-shop';
 import { Pagination } from '../../../shared/components/pagination/pagination';
 import { ProductsCard } from '../../../shared/components/products/products-card';
 import { SkeletonShopPage } from '../../../shared/components/skeleton/skeleton-shop-page';
+import { getSortedPage } from '../../../utils/products/get-sorted-page';
 
 export function Catalog() {
 
@@ -15,19 +16,7 @@ export function Catalog() {
 
     const { products, loading, error} = UseGetProducts(20)
 
-
-    const sortedProducts = [...products].sort((a, b) => {
-        if (sortMethod === "price-asc") return a.price - b.price;
-        if (sortMethod === "price-desc") return b.price - a.price;
-        if (sortMethod === "name") return a.title.localeCompare(b.title);
-        return 0; 
-    });
-
-    const totalPages = Math.ceil(products.length / showPerPage);
-    const start = (page - 1) * showPerPage;
-    const end = Math.min(page * showPerPage, products.length);
-
-    const displayedProducts = sortedProducts.slice(start, end);
+    const { displayedProducts, totalPages, start, end } = getSortedPage(products, { sortMethod, page, showPerPage })
 
     useEffect(() => {
         window.scrollTo({
