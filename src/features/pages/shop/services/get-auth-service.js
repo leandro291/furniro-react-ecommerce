@@ -1,10 +1,8 @@
-import axios from "axios"
-
-const API_URL = "https://fakestoreapi.com/auth/login"
+import { apiClient } from "./api-client"
 
 export const authLoginService = async ({username, password}) => {
 
-    const response = await axios.post(API_URL, {
+    const response = await apiClient.post('/auth/login', {
         username,
         password
     })

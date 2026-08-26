@@ -1,13 +1,11 @@
-import axios from 'axios';
-
-const API_URL = "https://fakestoreapi.com/products"
+import { apiClient } from './api-client';
 
 export const GetProducts = async ({ limit }) => {
-    
-    const response = await axios.get(API_URL, {
+
+    const response = await apiClient.get('/products', {
         params: { limit }
     })
 
     return response.data
 
-} 
+}

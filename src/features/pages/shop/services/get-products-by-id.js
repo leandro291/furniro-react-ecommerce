@@ -1,9 +1,7 @@
-import axios from "axios"
-
-const API_URL = "https://fakestoreapi.com/products/"
+import { apiClient } from "./api-client"
 
 export const GetProductsById = async (id) => {
-    const response = await axios.get(`${API_URL}${id}`)
+    const response = await apiClient.get(`/products/${id}`)
 
     return response.data
 }
