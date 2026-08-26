@@ -1,12 +1,17 @@
 import { GetProducts } from "../services/get-products"
 import { useFetch } from "./use-fetch"
 
-export const UseGetProducts = (limit) => {
+const INITIAL_VALUE = { count: 0, next: null, previous: null, results: [] }
 
-    const { data: products, loading, error } = useFetch(() => GetProducts({ limit }), [limit], [])
+export const UseGetProducts = ({ page = 1, limit } = {}) => {
+
+    const { data, loading, error } = useFetch(() => GetProducts({ page, limit }), [page, limit], INITIAL_VALUE)
 
     return {
-        products,
+        products: data.results,
+        count: data.count,
+        next: data.next,
+        previous: data.previous,
         loading,
         error,
     }
