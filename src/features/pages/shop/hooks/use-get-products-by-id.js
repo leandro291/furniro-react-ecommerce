@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react"
 import { GetProductsById } from "../services/get-products-by-id"
+import { useFetch } from "./use-fetch"
 
 export const UseGetProductsById = (id) => {
 
-    const [ product, setProduct ] = useState(null)
-    const [ loading, setLoading ] = useState(true)
-    const [ error, setError ] = useState(null)
+    const { data: product, loading, error } = useFetch(() => GetProductsById(id), [id])
 
-    useEffect(() =>{
-        GetProductsById(id)
-            .then(setProduct)
-            .catch((error) => setError(error.message))
-            .finally(() => setLoading(false))
-    }, [id])
-
-    return{
+    return {
         product,
         loading,
-        error
+        error,
     }
-
 }
