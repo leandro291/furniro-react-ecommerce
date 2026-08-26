@@ -5,23 +5,27 @@ import { usePaginationShopStore } from '../../../store/pagination-shop';
 import { Pagination } from '../../../shared/components/pagination/pagination';
 import { ProductsCard } from '../../../shared/components/products/products-card';
 import { SkeletonShopPage } from '../../../shared/components/skeleton/skeleton-shop-page';
-import { getSortedPage } from '../../../utils/products/get-sorted-page';
+import { sortProducts } from '../../../utils/products/sort-products';
+
+const PAGE_SIZE = 20
 
 export function Catalog() {
 
     const [ view, setView ] = useState("grid")
     const { page, setPage } = usePaginationShopStore()
-    const [ showPerPage, setShowPerPage ] = useState(8)
     const [ sortMethod, setSortMethod ] = useState("default")
 
-    const { products, loading, error} = UseGetProducts(20)
+    const { products, count, loading, error } = UseGetProducts({ page, limit: PAGE_SIZE })
 
-    const { displayedProducts, totalPages, start, end } = getSortedPage(products, { sortMethod, page, showPerPage })
+    const displayedProducts = sortProducts(products, sortMethod)
+    const totalPages = Math.max(Math.ceil(count / PAGE_SIZE), 1)
+    const start = count === 0 ? 0 : (page - 1) * PAGE_SIZE + 1
+    const end = Math.min(page * PAGE_SIZE, count)
 
     useEffect(() => {
         window.scrollTo({
-            top: 0,             
-            behavior: 'smooth'  
+            top: 0,
+            behavior: 'smooth'
         });
     }, [page, sortMethod])
 
@@ -46,18 +50,17 @@ export function Catalog() {
             <CatalogFilter
                 view={view}
                 setView={setView}
-                totalProducts={products.length} 
-                showPerPage={showPerPage} 
-                setShowPerPage={setShowPerPage}     
-                sortMethod={sortMethod} 
+                totalProducts={count}
+                showPerPage={PAGE_SIZE}
+                sortMethod={sortMethod}
                 setSortMethod={setSortMethod}
                 currentStart={start}
                 currentEnd={end}
             />
             <div className={
-                view === "grid" ? 
-                "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-70 sm:max-w-300 w-full gap-6 mt-10 mx-auto" 
-                : 
+                view === "grid" ?
+                "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-70 sm:max-w-300 w-full gap-6 mt-10 mx-auto"
+                :
                 "flex flex-col justify-center gap-4 mt-10 mx-auto max-w-70 sm:max-w-80 w-full"
             }>
                 {displayedProducts.map((product) => (
@@ -65,7 +68,7 @@ export function Catalog() {
                 ))}
             </div>
             <Pagination page={page} setPage={setPage} totalPages={totalPages}/>
-            
+
         </div>
     )
 }

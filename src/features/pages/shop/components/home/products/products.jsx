@@ -6,7 +6,7 @@ import { SkeletonShopPage } from '../../../shared/components/skeleton/skeleton-s
 
 export function Products() {
     
-    const { products, loading, error } = UseGetProducts(8);
+    const { products, loading, error } = UseGetProducts({ limit: 8 });
 
     if (loading){
         return (
