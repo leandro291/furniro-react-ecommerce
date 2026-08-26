@@ -1,13 +1,11 @@
 import React from 'react'
 
+// Los 4 tags hardcodeados de Fake Store no tienen equivalente real en el catálogo
+// de Furniro (pregunta abierta: qué tags reales existen por categoría). Mientras
+// tanto se muestra el nombre de categoría ya resuelto como único tag disponible.
 export function DisplayTags({ category }) {
 
-    if (category == "men's clothing") return <span>Casual, Estilo, Tendencia, Confort</span>
-    if (category == "jewelery") return <span>Elegante, Plata 925, Lujo, Hecho a Mano</span>
-    if (category == "electronics") return <span>Tecnologia, Gadgets, Innovacion, Garantia</span>
-    if (category == "women's clothing") return <span>Fashion, Chic, Temporada, Esenciales</span>
+    if (!category) return <div></div>
 
-    return (
-        <div></div>
-    )
+    return <span>{category}</span>
 }
