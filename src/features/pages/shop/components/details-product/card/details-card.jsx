@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { DetailsCardItem } from './details-card-item';
 import { DetailsBanner } from '../banner/details-banner';
 import { DETAILS_CARD } from '../../../constants/details/details-card';
 import { DisplayTags } from '../../../utils/details-product/display-tags';
+import { useCategoriesStore } from '../../../store/categories-store';
 import { useGetAuthCartStore } from '../../../hooks/use-get-auth-cart-store';
 import { QuantitySelector } from '../../../shared/components/quantity-selector/quantity-selector';
 import { OutlineButton } from '../../../shared/components/outline-button/outline-button';
@@ -13,8 +14,19 @@ export function DetailsCard({ product }) {
 
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useGetAuthCartStore()
+    const { categories, fetchCategories } = useCategoriesStore()
 
-    const { id, title, price, description, category, image } = product
+    useEffect(() => {
+        fetchCategories()
+    }, [fetchCategories])
+
+    const { id, title, price, description, category, image, stock } = product
+    const outOfStock = stock === 0
+    // Fake Store manda el nombre de categoría directo (string); Furniro manda el id
+    // numérico y hay que resolverlo contra /api/catalog/categories/.
+    const categoryName = typeof category === "string"
+        ? category
+        : categories.find((c) => c.id === category)?.name ?? category
 
     return (
         <div>
@@ -47,18 +59,19 @@ export function DetailsCard({ product }) {
                                 <OutlineButton
                                     className="rounded-xl px-1 lg:px-10 py-3"
                                     onClick={() => addToCart(product, quantity)}
+                                    disabled={outOfStock}
                                 >
-                                    Add To Cart
+                                    {outOfStock ? "Sin stock" : "Add To Cart"}
                                 </OutlineButton>
                             </div>
                         </div>
 
                         <hr />
-                        
+
                         <ul className='flex flex-col gap-2 px-5 sm:px-2'>
                             <DetailsCardItem label={"Sku"} children={id}/>
-                            <DetailsCardItem label={"Category"} children={category}/>
-                            <DetailsCardItem label={"Tags"} children={<DisplayTags category={category} />}/>
+                            <DetailsCardItem label={"Category"} children={categoryName}/>
+                            <DetailsCardItem label={"Tags"} children={<DisplayTags category={categoryName} />}/>
                             <DetailsCardItem label={"Share"} children={<SquareArrowOutUpRight size={18} />}/>
                         </ul>
                     </div>
