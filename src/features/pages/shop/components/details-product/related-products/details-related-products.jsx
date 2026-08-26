@@ -6,7 +6,7 @@ import { SkeletonShopPage } from '../../../shared/components/skeleton/skeleton-s
 export function DetailsRelatedProducts({ product }) {
 
     const [ limit ] = useState(20)
-    const { products, loading, error } = UseGetProducts(limit)
+    const { products, loading, error } = UseGetProducts({ limit })
 
     if (loading){
         return (
