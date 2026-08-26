@@ -17,7 +17,7 @@ export function Carrusel({ slides }) {
                 <div className='flex flex-col items-start lg:justify-center gap-3 w-full'>
                     <h2 className='font-["Poppins"] font-bold text-[40px] text-gray-950'>50+ Beautiful rooms inspiration</h2>
                     <p className='font-["Poppins"] text-gray-600 font-medium'>Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
-                    <button className='font-["Poppins"] font-semibold text-white py-3 px-10 bg-yellow-600 mt-3 cursor-pointer ' onClick={handleNavigate}>Explore More</button>
+                    <button className='font-["Poppins"] font-semibold text-white py-3 px-10 bg-brand mt-3 cursor-pointer ' onClick={handleNavigate}>Explore More</button>
                 </div>
                 <CarruselFunctions slides={slides}/>
             </div>

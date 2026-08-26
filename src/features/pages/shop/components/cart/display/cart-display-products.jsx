@@ -38,7 +38,7 @@ export function CartDisplayProducts({ id, image, price, quantity, title, removeF
 
             <div className='flex justify-end md:justify-center'>
                 <Trash 
-                    className='fill-amber-400 text-amber-400 cursor-pointer hover:scale-110 transition-transform p-1 md:p-0' 
+                    className='fill-brand text-brand cursor-pointer hover:scale-110 transition-transform p-1 md:p-0' 
                     size={30}
                     onClick={() => removeFromCart(id)}
                 />

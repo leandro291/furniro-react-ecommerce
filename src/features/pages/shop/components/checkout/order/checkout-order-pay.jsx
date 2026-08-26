@@ -23,7 +23,7 @@ export function CheckoutOrderPay({ cart, totalPrice, pricePerProduct }) {
                 </div>
                 <div className='flex justify-between'>
                     <span className='font-["Poppins"]'>Total</span>
-                    <span className='font-["Poppins"] font-bold text-2xl text-yellow-600'>Rs {totalPrice}</span>
+                    <span className='font-["Poppins"] font-bold text-2xl text-brand'>Rs {totalPrice}</span>
                 </div>
             </div>
 

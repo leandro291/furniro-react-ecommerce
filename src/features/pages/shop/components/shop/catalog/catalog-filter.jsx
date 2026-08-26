@@ -15,11 +15,11 @@ export function CatalogFilter({ view, setView, totalProducts, showPerPage, sortM
                     </div>
                     <div className='gap-10 hidden sm:flex'>
                         <LayoutGrid 
-                            className={`cursor-pointer transition-colors ${view === 'grid' ? 'text-amber-400' : 'text-black'}`}
+                            className={`cursor-pointer transition-colors ${view === 'grid' ? 'text-brand' : 'text-black'}`}
                             onClick={() => setView("grid")}
                         />
                         <AlignVerticalSpaceAround
-                            className={`cursor-pointer transition-colors ${view === 'list' ? 'text-amber-400' : 'text-black'}`} 
+                            className={`cursor-pointer transition-colors ${view === 'list' ? 'text-brand' : 'text-black'}`} 
                             onClick={() => setView("list")}
                         />
                     </div>

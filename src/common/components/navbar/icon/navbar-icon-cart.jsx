@@ -58,7 +58,7 @@ export function NavbarIconCart() {
                                     
                                     <div className='flex justify-between mb-4'>
                                         <span className='font-normal'>Subtotal</span>
-                                        <span className='font-semibold text-yellow-600'>Rs. {totalPrice}</span>
+                                        <span className='font-semibold text-brand'>Rs. {totalPrice}</span>
                                     </div>
 
                                     <div className='flex gap-3'>

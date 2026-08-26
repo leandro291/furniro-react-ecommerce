@@ -59,7 +59,7 @@ export function Pagination({ page, setPage, totalPages }) {
             className={`p-4 rounded-lg transition-all ${
                 isLastPage 
                     ? "bg-gray-100 text-gray-300 cursor-not-allowed" 
-                    : "bg-[#F9F1E7] text-black hover:bg-[#B88E2F] hover:text-white"
+                    : "bg-[#F9F1E7] text-black hover:bg-brand hover:text-white"
             }`}
         >
             <ChevronRight size={20} />

@@ -12,7 +12,7 @@ export function NavbarIconCartRender({ id, image, price, quantity, title, remove
                 
                 <div className='flex gap-2 text-sm'>
                     <span className='font-light'>{quantity} x</span>
-                    <span className='text-yellow-600'>Rs. {price}</span>
+                    <span className='text-brand'>Rs. {price}</span>
                 </div>
             </div>
             <CircleX size={18} className='text-gray-400 cursor-pointer' onClick={() => removeFromCart(id)} />

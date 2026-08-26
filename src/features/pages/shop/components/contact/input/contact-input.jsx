@@ -79,7 +79,7 @@ export function ContactInput() {
                 <textarea className='border-2 border-gray-400 px-5 py-6 rounded-xl resize-none' placeholder="Hi! i'd like to ask about" ref={message.ref}></textarea>
             </div>
 
-            <button className=' py-5 bg-amber-600 w-60 text-white cursor-pointer' onClick={handleSubmit} >Submit</button>
+            <button className=' py-5 bg-brand w-60 text-white cursor-pointer' onClick={handleSubmit} >Submit</button>
 
             </form>
         </div>
