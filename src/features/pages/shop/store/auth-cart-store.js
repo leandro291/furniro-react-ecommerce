@@ -1,6 +1,9 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
+// stock === null significa "desconocido/ilimitado" (Fake Store no lo trae)
+const clampToStock = (quantity, stock) => (stock == null ? quantity : Math.min(quantity, stock))
+
 export const AuthCartStore = create(
     persist(
         (set, get) => ({
@@ -15,11 +18,11 @@ export const AuthCartStore = create(
                 const newCart = [...currentCart]
                 newCart[index] = {
                     ...newCart[index],
-                    quantity: newCart[index].quantity + quantity
+                    quantity: clampToStock(newCart[index].quantity + quantity, product.stock)
             }
             set({ cart: newCart })
             } else {
-                set({ cart: [...currentCart, { ...product, quantity }] })  
+                set({ cart: [...currentCart, { ...product, quantity: clampToStock(quantity, product.stock) }] })
             }
         },
 
@@ -33,8 +36,8 @@ export const AuthCartStore = create(
             const currentCart = get().cart
             
             const updatedCart = currentCart.map((item) =>
-                item.id === productId 
-                    ? { ...item, quantity: item.quantity + 1 } 
+                item.id === productId
+                    ? { ...item, quantity: clampToStock(item.quantity + 1, item.stock) }
                     : item
             )
             
@@ -64,7 +67,7 @@ export const AuthCartStore = create(
         ),
 
         {
-        name: "cart-storage"
+        name: "cart-storage-v2"
         }
     )
 )
