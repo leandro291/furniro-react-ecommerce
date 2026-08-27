@@ -14,6 +14,15 @@
   <a href="https://github.com/leandro291/furniro-ecommerce-backend"><img src="https://img.shields.io/badge/Backend-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Backend"></a>
 </p>
 
+
+<p align="center">
+  <img src="docs/home.png" alt="Página de inicio" width="800">
+</p>
+
+<p align="center">
+  <img src="docs/shop.png" alt="Catálogo de productos" width="800">
+</p>
+
 ## Tech Stack
 | Category           | Technology                   |
 | ------------------ | ---------------------------- |
